@@ -21,6 +21,7 @@
     "compass"
   ],
   "dependencies": {
+    "deasync": "0.0.10",
     "node-sass": "*",
     "semver": "^4.2.0"
   },

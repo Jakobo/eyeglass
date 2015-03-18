@@ -107,4 +107,16 @@ describe("function loading", function () {
       }));
   });
 
+  it("will always block and masquerade as an asynchronous function",
+    function(done) {
+      var input = "#hello { greeting: hello(); }\n";
+      var expected = "#hello {\n  greeting: Hello, Myself!; }\n";
+      var result = sass.renderSync(eyeglass({
+        root: fixtureDirectory("is_a_module"),
+        data: input
+      }));
+      assert.equal(expected, result.css);
+      done();
+  });
+
 });
